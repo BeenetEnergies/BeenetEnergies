@@ -1,1 +1,345 @@
-index.html
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Beenet Energies — Energía responsable</title>
+  <meta name="description" content="Beenet Energies - soluciones de eficiencia energética para hogares. Proyecto académico." />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS (animaciones simples) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <style>
+    body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    .hero-curve { border-radius: 0 0 0 160px; overflow: hidden; min-height: 420px; }
+    .nav-link { transition: color .15s ease; }
+    .card-shadow { box-shadow: 0 12px 30px rgba(15,23,42,0.06); }
+  </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 bg-white/90 backdrop-blur z-50 border-b">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <img src="assets/img/logo.png" alt="Beenet logo" class="h-14 w-14 object-contain">
+        <div>
+          <div class="text-teal-700 font-bold text-xl">Beenet Energies</div>
+          <div class="text-xs text-gray-500">Eficiencia · Comunidad · Sostenibilidad</div>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a class="nav-link text-gray-700 hover:text-teal-600" href="#inicio">Inicio</a>
+        <a class="nav-link text-gray-700 hover:text-teal-600" href="#quienes">Quiénes somos</a>
+        <a class="nav-link text-gray-700 hover:text-teal-600" href="#necesidad">Necesidad</a>
+        <a class="nav-link text-gray-700 hover:text-teal-600" href="#solucion">Solución</a>
+        <a class="nav-link text-gray-700 hover:text-teal-600" href="#campanas">Campañas</a>
+        <a class="nav-link text-gray-700 hover:text-teal-600" href="#ofertas">Ofertas</a>
+        <a class="bg-teal-600 text-white px-4 py-2 rounded-full hover:bg-teal-700" href="#contacto">Contacto</a>
+      </nav>
+
+      <!-- menú móvil -->
+      <div class="md:hidden">
+        <button id="mobileBtn" class="p-2 border rounded-md">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="md:hidden hidden border-t">
+      <div class="px-6 py-4 flex flex-col gap-3">
+        <a href="#inicio" class="text-gray-700">Inicio</a>
+        <a href="#quienes" class="text-gray-700">Quiénes somos</a>
+        <a href="#necesidad" class="text-gray-700">Necesidad</a>
+        <a href="#solucion" class="text-gray-700">Solución</a>
+        <a href="#campanas" class="text-gray-700">Campañas</a>
+        <a href="#ofertas" class="text-gray-700">Ofertas</a>
+        <a href="#contacto" class="text-gray-700">Contacto</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section id="inicio" class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+      <div data-aos="fade-right">
+        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">Pequeños cambios, gran impacto — cada hogar cuenta</h1>
+        <p class="text-lg text-gray-600 mb-6">
+          En <strong>Beenet Energies</strong> ayudamos a familias y comunidades a reducir su consumo energético con soluciones accesibles,
+          formación y productos eficientes. Juntos reducimos costes y protegemos el planeta.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <a class="bg-teal-600 text-white px-6 py-3 rounded-full shadow card-shadow hover:bg-teal-700" href="#solucion">Nuestras soluciones</a>
+          <a class="border px-6 py-3 rounded-full text-gray-700 hover:border-teal-600" href="#campanas">Campañas</a>
+        </div>
+
+        <div class="mt-6 text-sm text-gray-500">
+          <strong>Proyecto y autores:</strong>
+          Ionut A. G. Mihai · Matías T. Morales · Renata Vizitiu · Paula de S. Delgado
+        </div>
+      </div>
+
+      <div class="hero-curve card-shadow" data-aos="fade-left">
+        <!-- imagen temporal relacionada con energía; cambia cuando subas la tuya -->
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Energía sostenible" class="w-full h-full object-cover">
+      </div>
+    </section>
+
+    <!-- QUIÉNES SOMOS -->
+    <section id="quienes" class="max-w-6xl mx-auto px-6 py-14">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div data-aos="fade-up">
+          <h2 class="text-3xl font-bold mb-4">Quiénes somos</h2>
+          <p class="text-gray-700 mb-4">
+            Beenet Energies nace para solucionar el uso ineficiente de la energía en el ámbito doméstico.
+            Diseñamos productos y servicios accesibles que ayudan a reducir gastos y a mejorar la eficiencia en los hogares,
+            poniendo un enfoque especial en familias vulnerables.
+          </p>
+          <ul class="text-sm text-gray-600 space-y-2">
+            <li><strong>Equipo:</strong> Ionut Antonio George Mihai · Matías Torres Morales · Renata Vizitiu · Paula de Santiago Delgado</li>
+            <li><strong>ODS:</strong> Contribuimos al ODS 12 — Producción y consumo responsables</li>
+          </ul>
+        </div>
+
+        <div data-aos="zoom-in" class="p-6 bg-white rounded-xl card-shadow">
+          <h3 class="font-semibold mb-2">Nuestra propuesta</h3>
+          <p class="text-gray-600">
+            Combinamos diagnóstico de vivienda, productos con alta eficiencia energética, programas eco predeterminados
+            y servicios de reparación para alargar la vida útil de los electrodomésticos.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NECESIDAD -->
+    <section id="necesidad" class="bg-gray-50 py-14">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Necesidad detectada</h2>
+        <p class="text-gray-700 mb-4" data-aos="fade-up" data-aos-delay="60">
+          Detectamos un problema de uso ineficiente de energía en hogares que afecta especialmente a familias con pocos recursos:
+          coste de soluciones renovables, falta de educación energética, productos mal diseñados y publicidad engañosa.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 mt-6">
+          <div data-aos="fade-right" class="p-6 bg-white rounded-xl card-shadow">
+            <h4 class="font-semibold mb-2">Causas identificadas</h4>
+            <ul class="list-disc list-inside text-gray-600">
+              <li>Falta de diseño eficiente en productos</li>
+              <li>Falta de educación energética</li>
+              <li>Publicidad engañosa o confusa</li>
+              <li>Precios elevados de soluciones eficientes</li>
+            </ul>
+          </div>
+
+          <div data-aos="fade-left" class="p-6 bg-white rounded-xl card-shadow">
+            <h4 class="font-semibold mb-2">Nuestro enfoque en ODS 12</h4>
+            <p class="text-gray-600">Promovemos producción y consumo responsables: materiales sostenibles, reutilización y prácticas de consumo inteligente.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUCIÓN / ACERCAMIENTO -->
+    <section id="solucion" class="max-w-6xl mx-auto px-6 py-14">
+      <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Aproximación a la solución</h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div data-aos="fade-up" class="p-6 bg-white rounded-xl card-shadow">
+          <h3 class="text-xl font-semibold mb-2">Sistema de estudio y reformas</h3>
+          <p class="text-gray-600">Diagnóstico de la vivienda y propuestas de reformas para reducir consumo sin sacrificar confort.</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="80" class="p-6 bg-white rounded-xl card-shadow">
+          <h3 class="text-xl font-semibold mb-2">Productos con alta eficiencia</h3>
+          <p class="text-gray-600">Electrodomésticos con programas eco, duraderos y con opciones de reparación para alargar su vida útil.</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="160" class="p-6 bg-white rounded-xl card-shadow">
+          <h3 class="text-xl font-semibold mb-2">Educación y campañas</h3>
+          <p class="text-gray-600">Campañas de sensibilización, talleres y material educativo para crear comunidades conscientes.</p>
+        </div>
+      </div>
+
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div data-aos="fade-right" class="p-6 bg-white rounded-xl card-shadow">
+          <h4 class="font-semibold mb-2">Servicios de reparación</h4>
+          <p class="text-gray-600">Reparaciones para evitar reemplazos innecesarios y recuperar componentes para nuevos productos.</p>
+        </div>
+
+        <div data-aos="fade-left" class="p-6 bg-white rounded-xl card-shadow">
+          <h4 class="font-semibold mb-2">Reutilización y producción responsable</h4>
+          <p class="text-gray-600">Minimizamos producción desde cero: ofrecemos intercambios, reciclado y reutilización de componentes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section id="beneficios" class="bg-gray-50 py-14">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Beneficios</h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          <div data-aos="fade-up" class="p-6 bg-white rounded-xl card-shadow">
+            <h4 class="font-semibold mb-2">Para hogares</h4>
+            <ul class="text-gray-600 list-disc list-inside">
+              <li>Ahorro en facturas de electricidad, agua y gas</li>
+              <li>Mayor confort y estabilidad energética</li>
+              <li>Acceso a soluciones responsables</li>
+            </ul>
+          </div>
+
+          <div data-aos="fade-up" data-aos-delay="80" class="p-6 bg-white rounded-xl card-shadow">
+            <h4 class="font-semibold mb-2">Para la comunidad</h4>
+            <ul class="text-gray-600 list-disc list-inside">
+              <li>Conexión entre vecinos y acciones colectivas</li>
+              <li>Conciencia y educación energética</li>
+            </ul>
+          </div>
+
+          <div data-aos="fade-up" data-aos-delay="160" class="p-6 bg-white rounded-xl card-shadow">
+            <h4 class="font-semibold mb-2">Para el planeta</h4>
+            <ul class="text-gray-600 list-disc list-inside">
+              <li>Reducción de consumo de recursos</li>
+              <li>Menor impacto ambiental</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLABORACIONES -->
+    <section id="colaboraciones" class="max-w-6xl mx-auto px-6 py-14">
+      <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Colaboraciones</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div data-aos="fade-up" class="p-6 bg-white rounded-xl card-shadow">
+          <h4 class="font-semibold mb-3">Organizaciones con las que trabajamos</h4>
+          <ul class="text-gray-600 list-disc list-inside space-y-2">
+            <li><strong>GREENPEACE</strong> — Campañas de concienciación e información.</li>
+            <li><strong>CRUZ ROJA</strong> — Ayudas a personas sin ingresos suficientes.</li>
+            <li><strong>EVVO</strong> — Co-desarrollo de electrodomésticos sostenibles.</li>
+            <li><strong>EMPRECAN PLUS</strong> — Financiación y subvenciones iniciales.</li>
+            <li><strong>iTEC CANTABRIA</strong> — Apoyo técnico y medición de consumos.</li>
+            <li><strong>EFICECAN INGENIERÍA</strong> — Instalación de energía eficiente y placas solares.</li>
+            <li><strong>ALDRO ENERGÍA</strong> — Acceso a autoconsumo a bajo coste.</li>
+          </ul>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="80" class="p-6 bg-white rounded-xl card-shadow">
+          <h4 class="font-semibold mb-3">Cómo colaboramos</h4>
+          <p class="text-gray-600">Buscamos alianzas técnicas, subvenciones, apoyo logístico y canales de ayuda para quien más lo necesita.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- APLICACIÓN Y OFERTAS -->
+    <section id="app" class="bg-gray-100 py-14">
+      <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-8 items-center">
+        <div data-aos="fade-right">
+          <h2 class="text-3xl font-bold mb-4">Aplicación Beenet</h2>
+          <p class="text-gray-700 mb-4">
+            Nuestra app conecta a las comunidades: chats grupales, foros, seguimiento del consumo (diario/mensual/anual)
+            y control remoto de dispositivos (calefacción, aire acondicionado, iluminación).
+          </p>
+
+          <h3 class="font-semibold mt-4 mb-2">Sistema de recompensas (Bees)</h3>
+          <p class="text-gray-600 mb-2">Los usuarios ganan puntos (bees) por cumplir retos mensuales, votar mejoras vecinales y participar en acciones comunitarias.</p>
+          <p class="text-gray-600">Los puntos pueden canjearse por descuentos en productos/servicios o cupones en comercios locales.</p>
+        </div>
+
+        <div data-aos="zoom-in" class="p-6 bg-white rounded-xl card-shadow">
+          <div class="h-64 bg-[url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d')] bg-cover bg-center rounded-lg"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFERTAS, BANCO Y MEJORAS VECINALES -->
+    <section id="ofertas" class="max-w-6xl mx-auto px-6 py-14">
+      <h2 class="text-3xl font-bold mb-6" data-aos="fade-up">Ofertas y mejoras vecinales</h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div data-aos="fade-up" class="p-6 bg-white rounded-xl card-shadow">
+          <h4 class="font-semibold mb-2">Sistema de puntos</h4>
+          <p class="text-gray-600">Gana bees por objetivos de eficiencia y participación comunitaria. Canjeables por descuentos y talleres.</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="80" class="p-6 bg-white rounded-xl card-shadow">
+          <h4 class="font-semibold mb-2">Banco de eficiencia</h4>
+          <p class="text-gray-600">Un banco vecinal donde cada hogar aporta y recibe según necesidades (intercambio de electrodomésticos, baterías compartidas).</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="160" class="p-6 bg-white rounded-xl card-shadow">
+          <h4 class="font-semibold mb-2">Mejoras colectivas</h4>
+          <p class="text-gray-600">Instalaciones comunitarias: paneles solares, recogida de agua de lluvia, puntos de recarga compartidos, mejoras en iluminación.</p>
+        </div>
+      </div>
+
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <div data-aos="fade-up" class="p-6 bg-white rounded-xl card-shadow">
+          <h4 class="font-semibold mb-2">Reconocimientos y retos</h4>
+          <p class="text-gray-600">Premios a hogares o comunidades con mayores ahorros. Competencias amigables y reconocimientos visibles.</p>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="80" class="p-6 bg-white rounded-xl card-shadow">
+          <h4 class="font-semibold mb-2">Talleres y formación</h4>
+          <p class="text-gray-600">Canjea puntos por talleres gratuitos sobre eficiencia y energías renovables.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="max-w-4xl mx-auto px-6 py-14">
+      <h2 class="text-3xl font-bold mb-4" data-aos="fade-up">Contacto</h2>
+      <p class="text-gray-700 mb-6" data-aos="fade-up" data-aos-delay="40">¿Quieres colaborar, recibir más info o solicitar un diagnóstico? Escríbenos.</p>
+
+      <form onsubmit="return handleContact(event)" class="grid gap-4">
+        <input required name="nombre" type="text" placeholder="Tu nombre" class="p-3 rounded border">
+        <input required name="email" type="email" placeholder="Tu email" class="p-3 rounded border">
+        <textarea required name="mensaje" rows="5" placeholder="Mensaje" class="p-3 rounded border"></textarea>
+        <div class="flex gap-4">
+          <button type="submit" class="bg-teal-600 text-white px-6 py-3 rounded-full hover:bg-teal-700">Enviar</button>
+          <a class="border px-6 py-3 rounded-full text-gray-700" href="mailto:beenetenergies@gmail.com">Enviar desde mi correo</a>
+        </div>
+        <p id="formMessage" class="text-sm text-green-600 hidden">¡Mensaje enviado! Gracias.</p>
+      </form>
+    </section>
+
+    <footer class="py-8 bg-gray-100 border-t">
+      <div class="max-w-6xl mx-auto px-6 text-center text-sm text-gray-600">
+        © <span id="year"></span> Beenet Energies — Proyecto académico.
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // AOS init
+    AOS.init({ once: true, duration: 700 });
+
+    // Mobile menu
+    document.getElementById('mobileBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    // Form handler (simulado)
+    function handleContact(e){
+      e.preventDefault();
+      const form = e.target;
+      document.getElementById('formMessage').classList.remove('hidden');
+      setTimeout(()=> document.getElementById('formMessage').classList.add('hidden'), 4000);
+      form.reset();
+      return false;
+    }
+
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
