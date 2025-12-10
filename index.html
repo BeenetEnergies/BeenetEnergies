@@ -3,7 +3,6 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Beenet Energies — Energía Responsable</title>
   <meta name="description" content="Beenet Energies - Soluciones de eficiencia energética, educación, campañas y comunidad sostenible.">
 
@@ -73,7 +72,7 @@
       box-shadow:0 28px 60px rgba(0,0,0,.12);
     }
 
-    /* Animación inicial — ABEJA VOLANDO */
+    /* Animación premium — Abeja estilo trazo */
     #intro{
       position:fixed;
       inset:0;
@@ -90,18 +89,27 @@
       pointer-events:none;
     }
 
-    .bee{
-      width:80px;
-      height:80px;
-      background:url('https://i.imgur.com/u6KFrfK.png') center/contain no-repeat;
-      animation:fly 2s ease forwards;
+    .bee-wrapper{
+      position:relative;
+      width:120px;
+      height:120px;
     }
 
-    @keyframes fly{
-      0%{transform:translateX(-120px) translateY(40px) rotate(-20deg); opacity:0;}
-      40%{transform:translateX(20px) translateY(-10px) rotate(10deg); opacity:1;}
-      70%{transform:translateX(50px) translateY(0) rotate(0deg);}
-      100%{transform:translateX(0) translateY(0) scale(1);}
+    .bee{
+      position:absolute;
+      width:40px;
+      height:40px;
+      background:url('https://i.imgur.com/LvO3QfB.png') center/contain no-repeat;
+      animation:bee-flight 4s ease-in-out forwards;
+    }
+
+    @keyframes bee-flight{
+      0%{transform:translate(0,60px) scale(0.5) rotate(-30deg); opacity:0;}
+      20%{transform:translate(30px,30px) scale(0.8) rotate(10deg); opacity:1;}
+      40%{transform:translate(60px,-10px) scale(1) rotate(-10deg);}
+      60%{transform:translate(90px,20px) scale(1.1) rotate(20deg);}
+      80%{transform:translate(120px,0px) scale(1) rotate(-5deg);}
+      100%{transform:translate(150px,-10px) scale(0) rotate(0deg);}
     }
 
     .logo-intro{
@@ -109,6 +117,43 @@
       opacity:0;
       transform:scale(.75);
       transition:.8s ease;
+      margin-top:20px;
+    }
+
+    /* Formulario contacto */
+    .contact-form{
+      max-width:600px;
+      margin:0 auto;
+      display:flex;
+      flex-direction:column;
+      gap:1rem;
+    }
+    .contact-form input, .contact-form textarea{
+      padding:.75rem 1rem;
+      border:1px solid #cbd5e1;
+      border-radius:0.5rem;
+      font-size:1rem;
+    }
+    .contact-form button{
+      width:fit-content;
+    }
+    .success-msg{
+      opacity:0;
+      color:green;
+      font-weight:bold;
+      transition:.5s ease;
+    }
+    .success-msg.show{
+      opacity:1;
+    }
+
+    /* Video */
+    .video-wrapper{
+      max-width:800px;
+      margin:2rem auto;
+      border-radius:1rem;
+      overflow:hidden;
+      box-shadow:0 20px 40px rgba(0,0,0,.08);
     }
   </style>
 </head>
@@ -117,7 +162,9 @@
 
 <!-- INTRO ANIMATION -->
 <div id="intro">
-  <div class="bee"></div>
+  <div class="bee-wrapper">
+    <div class="bee"></div>
+  </div>
   <img id="logoIntro" class="logo-intro" src="assets/img/logo.png" alt="Beenet Energies">
 </div>
 
@@ -260,46 +307,15 @@
   </div>
 </section>
 
-<!-- CAMPANAS -->
-<section id="campanas" class="py-16">
-  <h2 class="text-4xl font-bold mb-4">CAMPAÑAS</h2>
-
-  <div class="grid md:grid-cols-3 gap-6">
-    <div class="card">
-      <h4 class="font-bold">HOGAR EFICIENTE</h4>
-      <p class="text-gray-600">Diagnósticos gratuitos.</p>
-    </div>
-    <div class="card">
-      <h4 class="font-bold">SEMANA DE LA ENERGÍA</h4>
-      <p class="text-gray-600">Eventos formativos.</p>
-    </div>
-    <div class="card">
-      <h4 class="font-bold">DESENCHUFA & AHORRA</h4>
-      <p class="text-gray-600">Retos mensuales.</p>
-    </div>
-  </div>
-</section>
-
-<!-- OFERTAS -->
-<section id="ofertas" class="py-16 bg-gray-50">
-  <h2 class="text-4xl font-bold mb-6">OFERTAS Y SISTEMA BEES</h2>
-
-  <div class="grid md:grid-cols-2 gap-6">
-    <div>
-      <p class="text-gray-600"><b>Bees</b> es nuestro sistema de puntos que premia la eficiencia con descuentos, talleres y mejoras vecinales.</p>
-      <ul class="mt-3 text-gray-600">
-        <li><b>Banco de eficiencia</b> compartido</li>
-        <li><b>Intercambio de electrodomésticos</b></li>
-        <li><b>Reconocimientos comunitarios</b></li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3 class="font-bold mb-2">APP BEENET</h3>
-      <p class="text-gray-600 mb-3">Consulta consumo, controla dispositivos y conecta con tu comunidad.</p>
-      <div class="h-48 bg-gray-200 rounded-xl flex items-center justify-center text-gray-500">
-        Aquí irá la imagen de la APP
-      </div>
-    </div>
+<!-- VIDEO -->
+<section id="video" class="py-16 text-center">
+  <h2 class="text-4xl font-bold mb-6">VIDEO</h2>
+  <p class="text-gray-600 mb-6">Conoce más sobre nuestro proyecto.</p>
+  <div class="video-wrapper">
+    <video controls width="100%">
+      <source src="assets/video/presentacion.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
+    </video>
   </div>
 </section>
 
@@ -308,7 +324,16 @@
   <h2 class="text-4xl font-bold mb-6">CONTACTO</h2>
   <p class="text-gray-600 mb-4">¿Quieres colaborar? ¿Tienes dudas? Escríbenos.</p>
 
-  <a href="mailto:beenetenergies@gmail.com" class="btn-main text-lg">ENVIAR CORREO</a>
+  <form class="contact-form" id="contactForm">
+    <input type="text" placeholder="Nombre" name="name" required>
+    <input type="email" placeholder="Email" name="email" required>
+    <textarea placeholder="Mensaje" name="message" rows="5" required></textarea>
+    <div class="flex gap-4 justify-center">
+      <button type="submit" class="btn-main">Enviar</button>
+      <a href="mailto:beenetenergies@gmail.com" class="btn-main">Enviar desde mi correo</a>
+    </div>
+    <p class="success-msg" id="successMsg">¡Mensaje enviado correctamente!</p>
+  </form>
 </section>
 
 </main>
@@ -327,6 +352,7 @@
 <script>
   AOS.init({duration:800, once:true});
 
+  // Animación intro
   window.onload = ()=>{
     setTimeout(()=>{
       document.getElementById("logoIntro").style.opacity = 1;
@@ -335,12 +361,24 @@
 
     setTimeout(()=>{
       document.getElementById("intro").classList.add("hide");
-    },2200);
+    },4200);
   };
 
+  // Año en footer
   document.getElementById("year").innerText = new Date().getFullYear();
+
+  // Formulario contacto
+  const form = document.getElementById("contactForm");
+  const successMsg = document.getElementById("successMsg");
+  form.addEventListener("submit", e=>{
+    e.preventDefault();
+    successMsg.classList.add("show");
+    form.reset();
+    setTimeout(()=>{successMsg.classList.remove("show");},3000);
+  });
 </script>
 
 </body>
 </html>
+
 
