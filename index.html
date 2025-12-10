@@ -72,7 +72,7 @@
       box-shadow:0 28px 60px rgba(0,0,0,.12);
     }
 
-    /* Animación premium — Abeja estilo trazo */
+    /* Animación INTRO con partículas */
     #intro{
       position:fixed;
       inset:0;
@@ -87,36 +87,24 @@
     #intro.hide{
       opacity:0;
       pointer-events:none;
+      transition:opacity 1s ease;
     }
 
-    .bee-wrapper{
-      position:relative;
-      width:120px;
-      height:120px;
-    }
-
-    .bee{
+    #particlesCanvas{
+      width:100%;
+      height:100%;
+      display:block;
+      background:white;
       position:absolute;
-      width:40px;
-      height:40px;
-      background:url('https://i.imgur.com/LvO3QfB.png') center/contain no-repeat;
-      animation:bee-flight 4s ease-in-out forwards;
-    }
-
-    @keyframes bee-flight{
-      0%{transform:translate(0,60px) scale(0.5) rotate(-30deg); opacity:0;}
-      20%{transform:translate(30px,30px) scale(0.8) rotate(10deg); opacity:1;}
-      40%{transform:translate(60px,-10px) scale(1) rotate(-10deg);}
-      60%{transform:translate(90px,20px) scale(1.1) rotate(20deg);}
-      80%{transform:translate(120px,0px) scale(1) rotate(-5deg);}
-      100%{transform:translate(150px,-10px) scale(0) rotate(0deg);}
+      inset:0;
     }
 
     .logo-intro{
       width:160px;
+      transition: transform 1s ease, opacity 1s ease;
+      z-index:10;
       opacity:0;
-      transform:scale(.75);
-      transition:.8s ease;
+      transform:scale(0.75);
       margin-top:20px;
     }
 
@@ -162,9 +150,7 @@
 
 <!-- INTRO ANIMATION -->
 <div id="intro">
-  <div class="bee-wrapper">
-    <div class="bee"></div>
-  </div>
+  <canvas id="particlesCanvas"></canvas>
   <img id="logoIntro" class="logo-intro" src="assets/img/logo.png" alt="Beenet Energies">
 </div>
 
@@ -352,16 +338,64 @@
 <script>
   AOS.init({duration:800, once:true});
 
-  // Animación intro
+  // Animación del logo y ocultar intro
+  const canvas = document.getElementById('particlesCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const particles = [];
+  const particleCount = 60;
+
+  class Particle {
+    constructor(){
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random()*2 + 1;
+      this.speedX = (Math.random() - 0.5) * 0.5;
+      this.speedY = (Math.random() - 0.5) * 0.5;
+      this.opacity = Math.random();
+    }
+    update(){
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if(this.x > canvas.width) this.x = 0;
+      if(this.x < 0) this.x = canvas.width;
+      if(this.y > canvas.height) this.y = 0;
+      if(this.y < 0) this.y = canvas.height;
+    }
+    draw(){
+      ctx.fillStyle = `rgba(255,221,0,${this.opacity})`;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+
+  for(let i=0;i<particleCount;i++){
+    particles.push(new Particle());
+  }
+
+  function animateParticles(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+      p.update();
+      p.draw();
+    });
+    requestAnimationFrame(animateParticles);
+  }
+  animateParticles();
+
   window.onload = ()=>{
     setTimeout(()=>{
-      document.getElementById("logoIntro").style.opacity = 1;
-      document.getElementById("logoIntro").style.transform = "scale(1)";
-    },1000);
+      const logo = document.getElementById("logoIntro");
+      logo.style.opacity = 1;
+      logo.style.transform = "scale(1)";
+    },500);
 
     setTimeout(()=>{
       document.getElementById("intro").classList.add("hide");
-    },4200);
+    },2500);
   };
 
   // Año en footer
@@ -380,5 +414,6 @@
 
 </body>
 </html>
+
 
 
