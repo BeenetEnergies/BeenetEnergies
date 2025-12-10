@@ -1,20 +1,19 @@
 <!doctype html>
 <html lang="es">
-<head> <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@300;400;600;800&display=swap" rel="stylesheet">
+<head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Beenet Energies — Energía Responsable</title>
-  <meta name="description" content="Beenet Energies - soluciones de eficiencia energética para hogares." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Fuentes: Bungee (títulos) + Nunito (texto) -->
+  <title>Beenet Energies — Energía Responsable</title>
+  <meta name="description" content="Beenet Energies - Soluciones de eficiencia energética, educación, campañas y comunidad sostenible.">
+
+  <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-  <!-- Tailwind (CDN para prototipos) -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- AOS ligero (aparecer al hacer scroll) -->
+  <!-- Animaciones AOS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
@@ -23,376 +22,37 @@
       --blue-900:#0A4D68;
       --blue-600:#1F8AFA;
       --yellow:#FFDD00;
-      --accent:#057A6E;
-      --muted:#6B7280;
+      --yellow-soft:#fff5b3;
+      --muted:#64748b;
     }
-    html,body{height:100%}
+
     body{
-      font-family: 'Nunito', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family:'Nunito', sans-serif;
       color:#0f172a;
-      background: white;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      background:white;
     }
 
-    /* Títulos con Bungee */
-    .title-bungee { font-family: 'Bungee', cursive; letter-spacing: -1px; }
-
-    /* Hero image curve */
-    .hero-curve{
-      border-radius: 0 0 0 160px;
-      overflow:hidden;
-      min-height:420px;
+    .title-bungee{
+      font-family:'Bungee', cursive;
+      letter-spacing:-1px;
     }
 
-    /* botón campañas upgraded */
-    .btn-camp {
-      background: linear-gradient(90deg,var(--yellow), #ffd84d);
-      color: #06202a;
-      font-weight:700;
-      padding: .6rem 1.2rem;
-      border-radius: 999px;
-      box-shadow: 0 8px 20px rgba(10,77,104,0.08);
-      transition: transform .22s ease, box-shadow .22s ease;
+    /* Botones */
+    .btn-main{
+      background:linear-gradient(90deg,var(--yellow),#ffe56d);
+      padding:.7rem 1.6rem;
+      border-radius:999px;
+      font-weight:800;
+      color:#06202a;
+      transition:.25s;
+      box-shadow:0 6px 18px rgba(0,0,0,.12);
     }
-    .btn-camp:hover{ transform: translateY(-4px); box-shadow: 0 18px 40px rgba(10,77,104,0.12); }
+    .btn-main:hover{
+      transform:translateY(-3px);
+      box-shadow:0 10px 30px rgba(0,0,0,.18);
+    }
 
-    /* Instagram round icon */
+    /* Icono Instagram */
     .insta-circle{
-      width:40px;height:40px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;
-      background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-    }
-
-    /* Intro logo animation container */
-    #introWrap {
-      position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
-      background: #fff; z-index:9999; transition: opacity .6s ease;
-    }
-    #introWrap.hide{ opacity:0; pointer-events:none; visibility:hidden; }
-
-    /* stroke animation path */
-    .stroke-path{ stroke:var(--blue-900); stroke-width:3; fill:none; stroke-linecap:round; stroke-linejoin:round; stroke-dasharray:1200; stroke-dashoffset:1200;}
-    .stroke-animate{ animation: draw 1.6s ease forwards; }
-    @keyframes draw {
-      to { stroke-dashoffset: 0; }
-    }
-
-    /* small helpers */
-    .card-shadow{ box-shadow: 0 14px 40px rgba(10,77,104,0.06); }
-    .muted{ color:var(--muted); }
-  </style>
-</head>
-
-<body>
-  <!-- INTRO ANIMATION (logo draw) -->
-  <div id="introWrap" aria-hidden="true">
-    <div class="flex flex-col items-center gap-6">
-      <!-- SVG stroke animation (dibuja un contorno y luego muestra el logo PNG) -->
-      <svg id="introSVG" width="180" height="180" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-        <!-- simple decorative path (circle+bee-like) -->
-        <path id="p1" class="stroke-path" d="M60,10 a50,50 0 1,1 -0.01,0" />
-        <path id="p2" class="stroke-path" d="M40 55 q8 -18 40 -8 q-10 6 -18 18 q-6 10 -22 -10" stroke-width="2.2" />
-      </svg>
-
-      <!-- Hidden logo image that will fade in after stroke -->
-      <img id="introLogo" src="assets/img/logo.png" alt="Beenet Energies" class="w-32 h-32 object-contain" style="opacity:0; transform:scale(.95); transition: all .6s ease;">
-      <div class="text-center">
-        <div class="title-bungee text-2xl" style="color:var(--blue-900)">Beenet Energies</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- HEADER -->
-  <header class="sticky top-0 bg-white/90 backdrop-blur z-40 border-b">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <img src="assets/img/logo.png" alt="logo" class="h-12 w-12 object-contain">
-        <div>
-          <div class="title-bungee text-xl" style="color:var(--blue-900)">Beenet Energies</div>
-          <div class="text-xs muted">Eficiencia · Comunidad · Sostenibilidad</div>
-        </div>
-      </div>
-
-      <nav class="hidden md:flex items-center gap-6 text-sm">
-        <a class="nav-link muted hover:text-black" href="#inicio">Inicio</a>
-        <a class="nav-link muted hover:text-black" href="#quienes">Quiénes</a>
-        <a class="nav-link muted hover:text-black" href="#necesidad">Necesidad</a>
-        <a class="nav-link muted hover:text-black" href="#solucion">Solución</a>
-        <a class="nav-link muted hover:text-black" href="#campanas">Campañas</a>
-        <a class="nav-link muted hover:text-black" href="#ofertas">Ofertas</a>
-
-        <!-- Instagram icon only -->
-        <a class="ml-2" href="https://instagram.com/tu_instagram" target="_blank" rel="noopener" aria-label="Instagram">
-          <div class="insta-circle">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm5 6.5A4.5 4.5 0 1 1 7.5 13 4.5 4.5 0 0 1 12 8.5zM18 6.5a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/></svg>
-          </div>
-        </a>
-      </nav>
-
-      <!-- mobile menu button -->
-      <div class="md:hidden">
-        <button id="mobileBtn" class="p-2 border rounded-md">
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <!-- mobile menu -->
-    <div id="mobileMenu" class="md:hidden hidden border-t">
-      <div class="px-6 py-4 flex flex-col gap-3">
-        <a href="#inicio" class="text-gray-700">Inicio</a>
-        <a href="#quienes" class="text-gray-700">Quiénes</a>
-        <a href="#necesidad" class="text-gray-700">Necesidad</a>
-        <a href="#solucion" class="text-gray-700">Solución</a>
-        <a href="#campanas" class="text-gray-700">Campañas</a>
-        <a href="#ofertas" class="text-gray-700">Ofertas</a>
-        <a href="https://instagram.com/tu_instagram" target="_blank" class="text-gray-700">Instagram</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- MAIN -->
-  <main class="max-w-6xl mx-auto px-6">
-    <!-- HERO -->
-    <section id="inicio" class="grid md:grid-cols-2 gap-8 items-center py-16">
-      <div data-aos="fade-right">
-        <h1 class="title-bungee text-5xl md:text-6xl leading-tight mb-6" style="color:var(--blue-900)">Energía Responsable para tu Hogar</h1>
-        <p class="text-lg muted mb-6">Transformamos hogares en espacios eficientes y sostenibles. Ahorro real, soluciones accesibles y comunidad.</p>
-
-        <div class="flex gap-4 items-center">
-          <a href="#solucion" class="btn-camp">Campañas & Proyectos</a>
-          <a href="#ofertas" class="px-5 py-3 border rounded-full muted hover:text-black">Ofertas</a>
-        </div>
-
-        <div class="mt-6 text-sm muted">Proyecto y autores: Ionut A.G. Mihai · Matías T. Morales · Renata Vizitiu · Paula de S. Delgado</div>
-      </div>
-
-      <div class="hero-curve card-shadow" data-aos="fade-left">
-        <!-- placeholder image; reemplaza por tu imagen cuando la subas -->
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Energía sostenible" class="w-full h-full object-cover">
-      </div>
-    </section>
-
-    <!-- QUIÉNES -->
-    <section id="quienes" class="py-12">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <div data-aos="fade-up">
-          <h2 class="text-3xl font-semibold mb-3">Quiénes somos</h2>
-          <p class="muted">Beenet Energies surge para solucionar el uso ineficiente de la energía en hogares, con soluciones accesibles y educativas.</p>
-          <ul class="mt-4 text-sm muted list-disc list-inside">
-            <li>Ionut Antonio George Mihai</li>
-            <li>Matías Torres Morales</li>
-            <li>Renata Vizitiu</li>
-            <li>Paula de Santiago Delgado</li>
-          </ul>
-        </div>
-
-        <div data-aos="zoom-in" class="p-6 bg-white rounded-xl card-shadow">
-          <h3 class="font-semibold mb-2">Nuestra propuesta</h3>
-          <p class="muted">Diagnóstico de viviendas, productos eficientes, servicios de reparación y campañas formativas.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- NECESIDAD -->
-    <section id="necesidad" class="py-12 bg-gray-50">
-      <h2 class="text-2xl font-semibold mb-4">Necesidad detectada</h2>
-      <p class="muted mb-4">Uso ineficiente de energía en hogares que afecta a familias vulnerables; falta de educación, diseño deficiente, publicidad engañosa y altos precios.</p>
-
-      <div class="grid md:grid-cols-3 gap-4">
-        <div class="p-4 bg-white rounded-lg card-shadow" data-aos="fade-up">
-          <h4 class="font-semibold">Causas</h4>
-          <ul class="text-sm muted list-disc list-inside">
-            <li>Falta de diseño eficiente</li>
-            <li>Falta de educación energética</li>
-            <li>Publicidad engañosa</li>
-            <li>Precios elevados</li>
-          </ul>
-        </div>
-        <div class="p-4 bg-white rounded-lg card-shadow" data-aos="fade-up" data-aos-delay="80">
-          <h4 class="font-semibold">ODS 12</h4>
-          <p class="muted text-sm">Producción y consumo responsables; uso de materiales reutilizados o responsables.</p>
-        </div>
-        <div class="p-4 bg-white rounded-lg card-shadow" data-aos="fade-up" data-aos-delay="160">
-          <h4 class="font-semibold">Impacto</h4>
-          <p class="muted text-sm">Reducción del desperdicio y ahorro económico en hogares.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOLUCIÓN -->
-    <section id="solucion" class="py-12">
-      <h2 class="text-3xl font-semibold mb-6">Aproximación a la solución</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="p-6 bg-white rounded-lg card-shadow" data-aos="fade-up">
-          <h4 class="font-semibold">Diagnóstico y reformas</h4>
-          <p class="muted">Estudios para adaptar viviendas y reducir consumo.</p>
-        </div>
-
-        <div class="p-6 bg-white rounded-lg card-shadow" data-aos="fade-up" data-aos-delay="80">
-          <h4 class="font-semibold">Productos eficientes</h4>
-          <p class="muted">Electrodomésticos con programas eco y servicio de reparación.</p>
-        </div>
-
-        <div class="p-6 bg-white rounded-lg card-shadow" data-aos="fade-up" data-aos-delay="160">
-          <h4 class="font-semibold">Educación</h4>
-          <p class="muted">Campañas, talleres y material formativo.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CAMPANAS -->
-    <section id="campanas" class="py-12 bg-gray-50">
-      <h2 class="text-3xl font-semibold mb-6">Campañas</h2>
-      <div class="grid md:grid-cols-3 gap-6">
-        <article class="p-6 bg-white rounded-lg card-shadow" data-aos="flip-left">
-          <h4 class="font-semibold">Hogar Eficiente</h4>
-          <p class="muted text-sm">Diagnósticos gratuitos y consejos prácticos.</p>
-        </article>
-        <article class="p-6 bg-white rounded-lg card-shadow" data-aos="flip-left" data-aos-delay="80">
-          <h4 class="font-semibold">Semana de la Energía</h4>
-          <p class="muted text-sm">Eventos y talleres en centros comunitarios.</p>
-        </article>
-        <article class="p-6 bg-white rounded-lg card-shadow" data-aos="flip-left" data-aos-delay="160">
-          <h4 class="font-semibold">Desenchufa & Ahorra</h4>
-          <p class="muted text-sm">Retos para reducir consumo en stand-by.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- OFERTAS Y APP -->
-    <section id="ofertas" class="py-12">
-      <div class="grid md:grid-cols-2 gap-6 items-center">
-        <div data-aos="fade-right">
-          <h2 class="text-3xl font-semibold mb-4">Ofertas y "Bees"</h2>
-          <p class="muted mb-4">Sistema de puntos que premia la eficiencia: canjeos por descuentos, talleres y mejoras vecinales.</p>
-
-          <ul class="text-sm muted list-disc list-inside">
-            <li>Banco de eficiencia vecinal.</li>
-            <li>Intercambio de electrodomésticos y reciclaje.</li>
-            <li>Reconocimientos y retos comunitarios.</li>
-          </ul>
-        </div>
-
-        <div data-aos="zoom-in" class="p-6 bg-white rounded-xl card-shadow">
-          <h3 class="font-semibold mb-2">App Beenet (espacio)</h3>
-          <p class="muted text-sm mb-3">Aquí irá la demo de la app: perfiles, consumo, chats y control remoto de dispositivos.</p>
-
-          <!-- placeholder para imagen/app; reemplaza por imagen cuando la subas -->
-          <div class="h-48 bg-gray-100 rounded-lg flex items-center justify-center muted">Sube imagen de la app aquí</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIDEO INFORMATIVO (placeholder) -->
-    <section id="video" class="py-12 bg-gray-50">
-      <h2 class="text-2xl font-semibold mb-4">Video informativo</h2>
-      <p class="muted mb-4">Sección reservada para el video. Puedes subir un MP4 o pegar enlace de YouTube.</p>
-
-      <!-- placeholder video: reemplaza con <iframe> YouTube o <video src="assets/video/info.mp4" controls> -->
-      <div class="max-w-4xl bg-black rounded-lg overflow-hidden mx-auto" style="height:280px">
-        <!-- placeholder visual -->
-        <div class="w-full h-full flex items-center justify-center text-white muted">Aquí irá el video (YouTube o MP4)</div>
-      </div>
-    </section>
-
-    <!-- COLABORACIONES -->
-    <section id="colaboraciones" class="py-12">
-      <h2 class="text-3xl font-semibold mb-4">Colaboraciones</h2>
-      <div class="grid md:grid-cols-2 gap-4">
-        <div class="p-4 bg-white rounded-lg card-shadow">
-          <ul class="muted list-disc list-inside">
-            <li>GREENPEACE — campañas de concienciación</li>
-            <li>CRUZ ROJA — ayudas para hogares vulnerables</li>
-            <li>EVVO — co-desarrollo de electrodomésticos</li>
-            <li>EMPRECAN PLUS — financiación</li>
-            <li>iTEC CANTABRIA — apoyo técnico</li>
-            <li>EFICECAN — instalaciones solares</li>
-            <li>ALDRO ENERGÍA — autoconsumo a bajo coste</li>
-          </ul>
-        </div>
-
-        <div class="p-4 bg-white rounded-lg card-shadow muted">
-          <h4 class="font-semibold mb-2">Cómo colaboramos</h4>
-          <p>Alianzas técnicas, subvenciones, logística y canales de apoyo para quienes más lo necesiten.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACTO -->
-    <section id="contacto" class="py-12 bg-gray-50">
-      <h2 class="text-3xl font-semibold mb-4">Contacto</h2>
-      <p class="muted mb-4">¿Quieres colaborar o solicitar un diagnóstico? Escríbenos.</p>
-
-      <form onsubmit="return handleContact(event)" class="max-w-2xl grid gap-3">
-        <input name="nombre" required class="p-3 rounded border" placeholder="Tu nombre" />
-        <input name="email" type="email" required class="p-3 rounded border" placeholder="Tu email" />
-        <textarea name="mensaje" required rows="5" class="p-3 rounded border" placeholder="Tu mensaje"></textarea>
-        <div class="flex gap-3">
-          <button class="bg-teal-600 text-white px-5 py-3 rounded-full" type="submit">Enviar</button>
-          <a class="border px-4 py-3 rounded-full muted" href="mailto:beenetenergies@gmail.com">Enviar desde mi correo</a>
-        </div>
-        <p id="formMessage" class="text-green-600 hidden">¡Mensaje enviado! Gracias.</p>
-      </form>
-    </section>
-
-    <footer class="py-8 text-center text-sm muted">
-      <div class="flex items-center justify-center gap-3">
-        <img src="assets/img/logo.png" alt="logo" class="h-10 w-10 object-contain">
-        <div>© <span id="year"></span> Beenet Energies</div>
-      </div>
-      <div class="mt-3">
-        <!-- instagram icon small footer -->
-        <a href="https://instagram.com/tu_instagram" target="_blank" rel="noopener" aria-label="Instagram">
-          <div class="insta-circle inline-flex p-1"><svg width="16" height="16" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm5 6.5A4.5 4.5 0 1 1 7.5 13 4.5 4.5 0 0 1 12 8.5zM18 6.5a1 1 0 1 1-1-1 1 1 0 0 1 1 1z"/></svg></div>
-        </a>
-      </div>
-    </footer>
-  </main>
-
-  <!-- SCRIPTS -->
-  <script>
-    AOS.init({ once:true, duration:700 });
-
-    // mobile menu
-    document.getElementById('mobileBtn').addEventListener('click', ()=> {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
-    });
-
-    // intro animation logic: draw stroke then show logo then hide intro
-    window.addEventListener('load', ()=>{
-      // add stroke animation classes
-      document.querySelectorAll('.stroke-path').forEach((p,i)=>{
-        setTimeout(()=> p.classList.add('stroke-animate'), i*180);
-      });
-
-      // after draw, fade in logo
-      setTimeout(()=>{
-        const introLogo = document.getElementById('introLogo');
-        introLogo.style.opacity = 1;
-        introLogo.style.transform = 'scale(1)';
-      }, 1800);
-
-      // hide intro container and enable page
-      setTimeout(()=>{
-        document.getElementById('introWrap').classList.add('hide');
-      }, 2600);
-    });
-
-    // form handler (simulado)
-    function handleContact(e){
-      e.preventDefault();
-      document.getElementById('formMessage').classList.remove('hidden');
-      setTimeout(()=> document.getElementById('formMessage').classList.add('hidden'), 3500);
-      e.target.reset();
-      return false;
-    }
-
-    // year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
-
-
+      width:40px;height:40px;border-radius:999px;
+      display:flex;align-items:center;justify-content:cen
