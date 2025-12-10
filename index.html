@@ -30,17 +30,16 @@
       scroll-behavior: smooth;
       margin:0;
       padding:0;
-      background-color: white !important; /* Fondo blanco */
+      background-color: white !important; /* Fondo blanco arreglado */
       color:#0f172a;
     }
 
     main, main > section{
-      background-color: white !important; /* Todas las secciones blancas por defecto */
+      background-color: white !important; /* Asegura que todas las secciones sean blancas */
     }
 
-    /* Secciones con gris suave opcional */
     section#ods, section#solucion, section#ofertas{
-      background-color: #f9fafb !important;
+      background-color: #f9fafb !important; /* Gris suave opcional para estilo */
     }
 
     .title-bungee{
@@ -188,7 +187,6 @@
   </div>
 </header>
 
-<!-- MAIN -->
 <main class="max-w-6xl mx-auto px-6">
 
 <!-- HERO -->
@@ -208,7 +206,166 @@
   </div>
 </section>
 
-<!-- resto de secciones (QUIENES, ODS, NECESIDAD, SOLUCION, CAMPANAS, OFERTAS, VIDEO, CONTACTO) ... -->
+<!-- QUIENES -->
+<section id="quienes" class="py-16">
+  <h2 class="text-4xl font-bold mb-4">QUIÉNES SOMOS</h2>
+  <p class="text-gray-600 text-lg">Somos un proyecto creado para combatir el <b>uso ineficiente de la energía</b> en hogares vulnerables y promover soluciones accesibles.</p>
+
+  <div class="mt-6 grid md:grid-cols-2 gap-6">
+    <div class="card" data-aos="zoom-in">
+      <h3 class="font-bold mb-2">EQUIPO</h3>
+      <ul class="text-gray-600">
+        <li><b>Ionut Antonio George Mihai</b></li>
+        <li><b>Matías Torres Morales</b></li>
+        <li><b>Renata Vizitiu</b></li>
+        <li><b>Paula de Santiago Delgado</b></li>
+      </ul>
+    </div>
+    <div class="card" data-aos="zoom-in" data-aos-delay="100">
+      <h3 class="font-bold mb-2">MISIÓN</h3>
+      <p>Crear hogares más eficientes mediante reformas, productos eco y formación energética.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ODS -->
+<section id="ods" class="py-16">
+  <h2 class="text-4xl font-bold mb-4">ODS 12 — PRODUCCIÓN Y CONSUMO RESPONSABLE</h2>
+  <p class="text-gray-600 mb-8">Nuestro proyecto se alinea con la <b>Agenda 2030</b> y promueve prácticas que reducen el impacto ambiental en hogares.</p>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="card">
+      <h4 class="font-bold">REDUCCIÓN</h4>
+      <p class="text-gray-600">Minimizamos el <b>desperdicio de energía</b> mediante diagnósticos y optimización.</p>
+    </div>
+    <div class="card">
+      <h4 class="font-bold">REUTILIZACIÓN</h4>
+      <p class="text-gray-600">Promovemos electrodomésticos reparables y reciclados.</p>
+    </div>
+    <div class="card">
+      <h4 class="font-bold">EDUCACIÓN</h4>
+      <p class="text-gray-600">Formación continua para fomentar hábitos sostenibles.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NECESIDAD -->
+<section id="necesidad" class="py-16">
+  <h2 class="text-4xl font-bold mb-4">NECESIDAD DETECTADA</h2>
+  <p class="text-gray-600 mb-8">El <b>desperdicio energético</b> afecta especialmente a hogares con recursos limitados.</p>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="card">
+      <h4 class="font-bold">PROBLEMAS</h4>
+      <ul class="mt-2 text-gray-600">
+        <li>Ineficiencia</li>
+        <li>Costes altos</li>
+        <li>Falta de educación</li>
+        <li>Publicidad engañosa</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4 class="font-bold">IMPACTO</h4>
+      <p class="text-gray-600">Desperdicio de agua, electricidad y recursos naturales.</p>
+    </div>
+
+    <div class="card">
+      <h4 class="font-bold">ENFOQUE</h4>
+      <p class="text-gray-600">Soluciones accesibles, sostenibles y diseñadas para todos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUCIÓN -->
+<section id="solucion" class="py-16">
+  <h2 class="text-4xl font-bold mb-4">SOLUCIÓN</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="card">
+      <h4 class="font-bold">DIAGNÓSTICO</h4>
+      <p class="text-gray-600">Evaluamos tu hogar para mejorar su eficiencia.</p>
+    </div>
+    <div class="card">
+      <h4 class="font-bold">PRODUCTOS ECO</h4>
+      <p class="text-gray-600">Electrodomésticos con programas de bajo consumo.</p>
+    </div>
+    <div class="card">
+      <h4 class="font-bold">EDUCACIÓN</h4>
+      <p class="text-gray-600">Charlas, talleres y formación ambiental.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPANAS -->
+<section id="campanas" class="py-16">
+  <h2 class="text-4xl font-bold mb-4">CAMPAÑAS</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="card">
+      <h4 class="font-bold">HOGAR EFICIENTE</h4>
+      <p class="text-gray-600">Diagnósticos gratuitos.</p>
+    </div>
+    <div class="card">
+      <h4 class="font-bold">SEMANA DE LA ENERGÍA</h4>
+      <p class="text-gray-600">Eventos formativos.</p>
+    </div>
+    <div class="card">
+      <h4 class="font-bold">DESENCHUFA & AHORRA</h4>
+      <p class="text-gray-600">Retos mensuales.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTAS -->
+<section id="ofertas" class="py-16">
+  <h2 class="text-4xl font-bold mb-4">OFERTAS Y SISTEMA BEES</h2>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <p class="text-gray-600"><b>Bees</b> es nuestro sistema de puntos que premia la eficiencia con descuentos, talleres y mejoras vecinales.</p>
+      <ul class="mt-3 text-gray-600">
+        <li><b>Banco de eficiencia</b> compartido</li>
+        <li><b>Intercambio de electrodomésticos</b></li>
+        <li><b>Reconocimientos comunitarios</b></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="font-bold mb-2">APP BEENET</h3>
+      <p class="text-gray-600 mb-3">Consulta consumo, controla dispositivos y conecta con tu comunidad.</p>
+      <div class="h-48 bg-gray-200 rounded-xl flex items-center justify-center text-gray-500">
+        Aquí irá la imagen de la APP
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video" class="py-16">
+  <h2 class="text-4xl font-bold mb-4">VIDEO</h2>
+  <div class="video-wrapper">
+    <video controls width="100%">
+      <source src="assets/video/tu-video.mp4" type="video/mp4">
+      Tu navegador no soporta HTML5 video.
+    </video>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="py-16 text-center">
+  <h2 class="text-4xl font-bold mb-6">CONTACTO</h2>
+  <p class="text-gray-600 mb-4">¿Quieres colaborar? ¿Tienes dudas? Escríbenos.</p>
+
+  <form id="contactForm" class="contact-form">
+    <input type="text" name="nombre" placeholder="Nombre" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="mensaje" placeholder="Mensaje" rows="4" required></textarea>
+    <button type="submit" class="btn-main">Enviar</button>
+    <a href="mailto:beenetenergies@gmail.com" class="btn-main mt-2">Enviar desde mi correo</a>
+    <div id="successMsg" class="success-msg">¡Mensaje enviado con éxito!</div>
+  </form>
+</section>
+
+</main>
 
 <footer class="py-10 text-center text-gray-500">
   <p>© <span id="year"></span> Beenet Energies — Todos los derechos reservados</p>
@@ -236,22 +393,7 @@
   };
 
   // Año dinámico
-  document.getElementById("year").innerText = new Date().getFullYear();
-
-  // Formulario contacto
-  const form = document.getElementById("contactForm");
-  const successMsg = document.getElementById("successMsg");
-
-  form.addEventListener("submit", e=>{
-    e.preventDefault();
-    successMsg.classList.add("show");
-    form.reset();
-    setTimeout(()=>successMsg.classList.remove("show"), 3000);
-  });
-</script>
-
-</body>
-</html>
+  document.getElementById("year").innerText = new Date().getFullYear
 
 
 
