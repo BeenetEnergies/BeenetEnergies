@@ -389,7 +389,17 @@
     }, 2500);
   };
 
-  // Año en
+  // Año dinámico
+  document.getElementById("year").innerText = new Date().getFullYear();
+
+  // Formulario contacto
+  const form = document.getElementById("contactForm");
+  const successMsg = document.getElementById("successMsg");
+
+  form.addEventListener("submit", e=>{
+    e.preventDefault();
+    // Aquí puedes integrar tu API de envío si quieres
+
 
 
 
