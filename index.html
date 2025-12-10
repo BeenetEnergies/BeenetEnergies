@@ -25,21 +25,10 @@
       --muted:#64748b;
     }
 
-    html, body{
+    body{
       font-family:'Nunito', sans-serif;
-      scroll-behavior: smooth;
-      margin:0;
-      padding:0;
-      background-color: white !important; /* Fondo blanco arreglado */
       color:#0f172a;
-    }
-
-    main, main > section{
-      background-color: white !important; /* Asegura que todas las secciones sean blancas */
-    }
-
-    section#ods, section#solucion, section#ofertas{
-      background-color: #f9fafb !important; /* Gris suave opcional para estilo */
+      background:white;
     }
 
     .title-bungee{
@@ -83,34 +72,40 @@
       box-shadow:0 28px 60px rgba(0,0,0,.12);
     }
 
-    /* INTRO INICIO */
+    /* Animación INTRO con partículas */
     #intro{
+      position:fixed;
+      inset:0;
+      background:white;
       display:flex;
       align-items:center;
       justify-content:center;
       flex-direction:column;
-      position: fixed;
-      inset: 0;
-      background: white; /* Fondo blanco */
-      z-index: 9999;
-      overflow: hidden;
-      font-weight: bold;
-      font-size: 2rem;
-      transition: opacity 1s ease;
+      z-index:9999;
+      transition:opacity .8s ease;
     }
     #intro.hide{
       opacity:0;
       pointer-events:none;
+      transition:opacity 1s ease;
     }
-    #logoIntro{
+
+    #particlesCanvas{
+      width:100%;
+      height:100%;
+      display:block;
+      background:white;
+      position:absolute;
+      inset:0;
+    }
+
+    .logo-intro{
       width:160px;
-      transform: translateY(50px) scale(0.5);
-      opacity:0;
       transition: transform 1s ease, opacity 1s ease;
-    }
-    #intro.showLogo #logoIntro{
-      transform: translateY(0) scale(1);
-      opacity:1;
+      z-index:10;
+      opacity:0;
+      transform:scale(0.75);
+      margin-top:20px;
     }
 
     /* Formulario contacto */
@@ -155,7 +150,8 @@
 
 <!-- INTRO ANIMATION -->
 <div id="intro">
-  <img id="logoIntro" src="assets/img/logo.png" alt="Beenet Energies">
+  <canvas id="particlesCanvas"></canvas>
+  <img id="logoIntro" class="logo-intro" src="assets/img/logo.png" alt="Beenet Energies">
 </div>
 
 <!-- HEADER -->
@@ -187,6 +183,7 @@
   </div>
 </header>
 
+<!-- MAIN -->
 <main class="max-w-6xl mx-auto px-6">
 
 <!-- HERO -->
@@ -229,7 +226,7 @@
 </section>
 
 <!-- ODS -->
-<section id="ods" class="py-16">
+<section id="ods" class="py-16 bg-gray-50">
   <h2 class="text-4xl font-bold mb-4">ODS 12 — PRODUCCIÓN Y CONSUMO RESPONSABLE</h2>
   <p class="text-gray-600 mb-8">Nuestro proyecto se alinea con la <b>Agenda 2030</b> y promueve prácticas que reducen el impacto ambiental en hogares.</p>
 
@@ -277,8 +274,8 @@
   </div>
 </section>
 
-<!-- SOLUCIÓN -->
-<section id="solucion" class="py-16">
+<!-- SOLUCION -->
+<section id="solucion" class="py-16 bg-gray-50">
   <h2 class="text-4xl font-bold mb-4">SOLUCIÓN</h2>
   <div class="grid md:grid-cols-3 gap-6">
     <div class="card">
@@ -296,56 +293,14 @@
   </div>
 </section>
 
-<!-- CAMPANAS -->
-<section id="campanas" class="py-16">
-  <h2 class="text-4xl font-bold mb-4">CAMPAÑAS</h2>
-
-  <div class="grid md:grid-cols-3 gap-6">
-    <div class="card">
-      <h4 class="font-bold">HOGAR EFICIENTE</h4>
-      <p class="text-gray-600">Diagnósticos gratuitos.</p>
-    </div>
-    <div class="card">
-      <h4 class="font-bold">SEMANA DE LA ENERGÍA</h4>
-      <p class="text-gray-600">Eventos formativos.</p>
-    </div>
-    <div class="card">
-      <h4 class="font-bold">DESENCHUFA & AHORRA</h4>
-      <p class="text-gray-600">Retos mensuales.</p>
-    </div>
-  </div>
-</section>
-
-<!-- OFERTAS -->
-<section id="ofertas" class="py-16">
-  <h2 class="text-4xl font-bold mb-4">OFERTAS Y SISTEMA BEES</h2>
-
-  <div class="grid md:grid-cols-2 gap-6">
-    <div>
-      <p class="text-gray-600"><b>Bees</b> es nuestro sistema de puntos que premia la eficiencia con descuentos, talleres y mejoras vecinales.</p>
-      <ul class="mt-3 text-gray-600">
-        <li><b>Banco de eficiencia</b> compartido</li>
-        <li><b>Intercambio de electrodomésticos</b></li>
-        <li><b>Reconocimientos comunitarios</b></li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3 class="font-bold mb-2">APP BEENET</h3>
-      <p class="text-gray-600 mb-3">Consulta consumo, controla dispositivos y conecta con tu comunidad.</p>
-      <div class="h-48 bg-gray-200 rounded-xl flex items-center justify-center text-gray-500">
-        Aquí irá la imagen de la APP
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- VIDEO -->
-<section id="video" class="py-16">
-  <h2 class="text-4xl font-bold mb-4">VIDEO</h2>
+<section id="video" class="py-16 text-center">
+  <h2 class="text-4xl font-bold mb-6">VIDEO</h2>
+  <p class="text-gray-600 mb-6">Conoce más sobre nuestro proyecto.</p>
   <div class="video-wrapper">
     <video controls width="100%">
-      <source src="assets/video/tu-video.mp4" type="video/mp4">
-      Tu navegador no soporta HTML5 video.
+      <source src="assets/video/presentacion.mp4" type="video/mp4">
+      Tu navegador no soporta el video.
     </video>
   </div>
 </section>
@@ -355,13 +310,15 @@
   <h2 class="text-4xl font-bold mb-6">CONTACTO</h2>
   <p class="text-gray-600 mb-4">¿Quieres colaborar? ¿Tienes dudas? Escríbenos.</p>
 
-  <form id="contactForm" class="contact-form">
-    <input type="text" name="nombre" placeholder="Nombre" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="mensaje" placeholder="Mensaje" rows="4" required></textarea>
-    <button type="submit" class="btn-main">Enviar</button>
-    <a href="mailto:beenetenergies@gmail.com" class="btn-main mt-2">Enviar desde mi correo</a>
-    <div id="successMsg" class="success-msg">¡Mensaje enviado con éxito!</div>
+  <form class="contact-form" id="contactForm">
+    <input type="text" placeholder="Nombre" name="name" required>
+    <input type="email" placeholder="Email" name="email" required>
+    <textarea placeholder="Mensaje" name="message" rows="5" required></textarea>
+    <div class="flex gap-4 justify-center">
+      <button type="submit" class="btn-main">Enviar</button>
+      <a href="mailto:beenetenergies@gmail.com" class="btn-main">Enviar desde mi correo</a>
+    </div>
+    <p class="success-msg" id="successMsg">¡Mensaje enviado correctamente!</p>
   </form>
 </section>
 
@@ -381,19 +338,84 @@
 <script>
   AOS.init({duration:800, once:true});
 
-  // Animación de inicio
+  // Animación del logo y ocultar intro
+  const canvas = document.getElementById('particlesCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const particles = [];
+  const particleCount = 60;
+
+  class Particle {
+    constructor(){
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height;
+      this.size = Math.random()*2 + 1;
+      this.speedX = (Math.random() - 0.5) * 0.5;
+      this.speedY = (Math.random() - 0.5) * 0.5;
+      this.opacity = Math.random();
+    }
+    update(){
+      this.x += this.speedX;
+      this.y += this.speedY;
+      if(this.x > canvas.width) this.x = 0;
+      if(this.x < 0) this.x = canvas.width;
+      if(this.y > canvas.height) this.y = 0;
+      if(this.y < 0) this.y = canvas.height;
+    }
+    draw(){
+      ctx.fillStyle = `rgba(255,221,0,${this.opacity})`;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+
+  for(let i=0;i<particleCount;i++){
+    particles.push(new Particle());
+  }
+
+  function animateParticles(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    particles.forEach(p=>{
+      p.update();
+      p.draw();
+    });
+    requestAnimationFrame(animateParticles);
+  }
+  animateParticles();
+
   window.onload = ()=>{
     setTimeout(()=>{
-      document.getElementById("intro").classList.add("showLogo");
-    }, 300);
+      const logo = document.getElementById("logoIntro");
+      logo.style.opacity = 1;
+      logo.style.transform = "scale(1)";
+    },500);
 
     setTimeout(()=>{
       document.getElementById("intro").classList.add("hide");
-    }, 2500);
+    },2500);
   };
 
-  // Año dinámico
-  document.getElementById("year").innerText = new Date().getFullYear
+  // Año en footer
+  document.getElementById("year").innerText = new Date().getFullYear();
+
+  // Formulario contacto
+  const form = document.getElementById("contactForm");
+  const successMsg = document.getElementById("successMsg");
+  form.addEventListener("submit", e=>{
+    e.preventDefault();
+    successMsg.classList.add("show");
+    form.reset();
+    setTimeout(()=>{successMsg.classList.remove("show");},3000);
+  });
+</script>
+
+</body>
+</html>
+
+
 
 
 
