@@ -165,6 +165,7 @@
       </div>
     </div>
 
+    <!-- Menú de escritorio -->
     <nav class="hidden md:flex gap-6 text-sm">
       <a href="#inicio" class="hover:text-black text-gray-500">INICIO</a>
       <a href="#quienes" class="hover:text-black text-gray-500">QUIÉNES</a>
@@ -176,10 +177,32 @@
 
       <a href="https://www.instagram.com/beenet_energies/?igsh=d2Zna3FvenVpNnF2#" target="_blank">
         <div class="insta-circle">
-          <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M7 2C4 2 2 4 2 7v10c0 3 2 5 5 5h10c3 0 5-2 5-5V7c0-3-2-5-5-5H7z"/></svg>
+          <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+            <path d="M7 2C4 2 2 4 2 7v10c0 3 2 5 5 5h10c3 0 5-2 5-5V7c0-3-2-5-5-5H7z"/>
+          </svg>
         </div>
       </a>
     </nav>
+
+    <!-- Botón hamburguesa para móvil -->
+    <div class="md:hidden flex items-center">
+      <button id="menuBtn">
+        <svg class="w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú móvil -->
+  <div id="mobileMenu" class="hidden flex-col bg-white w-full absolute top-20 left-0 shadow-md z-50">
+    <a href="#inicio" class="px-6 py-3 border-b text-gray-700">INICIO</a>
+    <a href="#quienes" class="px-6 py-3 border-b text-gray-700">QUIÉNES</a>
+    <a href="#ods" class="px-6 py-3 border-b text-gray-700">ODS 12</a>
+    <a href="#necesidad" class="px-6 py-3 border-b text-gray-700">NECESIDAD</a>
+    <a href="#solucion" class="px-6 py-3 border-b text-gray-700">SOLUCIÓN</a>
+    <a href="#campanas" class="px-6 py-3 border-b text-gray-700">CAMPAÑAS</a>
+    <a href="#ofertas" class="px-6 py-3 border-b text-gray-700">OFERTAS</a>
   </div>
 </header>
 
@@ -293,6 +316,47 @@
   </div>
 </section>
 
+<!-- CAMPANAS -->
+<section id="campanas" class="py-16">
+  <h2 class="text-4xl font-bold mb-4">CAMPAÑAS</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="card">
+      <h4 class="font-bold">HOGAR EFICIENTE</h4>
+      <p class="text-gray-600">Diagnósticos gratuitos y consejos de eficiencia.</p>
+    </div>
+    <div class="card">
+      <h4 class="font-bold">SEMANA DE LA ENERGÍA</h4>
+      <p class="text-gray-600">Eventos formativos y talleres educativos.</p>
+    </div>
+    <div class="card">
+      <h4 class="font-bold">DESENCHUFA & AHORRA</h4>
+      <p class="text-gray-600">Retos mensuales de consumo responsable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTAS -->
+<section id="ofertas" class="py-16 bg-gray-50">
+  <h2 class="text-4xl font-bold mb-6">OFERTAS Y SISTEMA BEES</h2>
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <p class="text-gray-600"><b>Bees</b> es nuestro sistema de puntos que premia la eficiencia con descuentos, talleres y mejoras vecinales.</p>
+      <ul class="mt-3 text-gray-600">
+        <li><b>Banco de eficiencia</b> compartido</li>
+        <li><b>Intercambio de electrodomésticos</b></li>
+        <li><b>Reconocimientos comunitarios</b></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="font-bold mb-2">APP BEENET</h3>
+      <p class="text-gray-600 mb-3">Consulta consumo, controla dispositivos y conecta con tu comunidad.</p>
+      <div class="h-48 bg-gray-200 rounded-xl flex items-center justify-center text-gray-500">
+        Aquí irá la imagen de la APP
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- VIDEO -->
 <section id="video" class="py-16 text-center">
   <h2 class="text-4xl font-bold mb-6">VIDEO</h2>
@@ -302,56 +366,6 @@
       <source src="assets/video/presentacion.mp4" type="video/mp4">
       Tu navegador no soporta el video.
     </video>
-  </div>
-</section>
-
-<!-- CAMPANAS -->
-<section id="campanas" class="py-16 bg-gray-50">
-  <h2 class="text-4xl font-bold mb-6">CAMPAÑAS</h2>
-  <p class="text-gray-600 mb-8">Mediante nuestras campañas buscamos educar y concienciar sobre el consumo responsable y la eficiencia energética.</p>
-
-  <div class="grid md:grid-cols-3 gap-6">
-    <div class="card">
-      <h4 class="font-bold">Concienciación</h4>
-      <p class="text-gray-600">Campañas en colaboración con GREENPEACE para informar sobre consumo responsable y su impacto ambiental.</p>
-    </div>
-    <div class="card">
-      <h4 class="font-bold">Ayuda a hogares vulnerables</h4>
-      <p class="text-gray-600">En colaboración con CRUZ ROJA ayudamos a personas sin recursos a acceder a electrodomésticos eficientes.</p>
-    </div>
-    <div class="card">
-      <h4 class="font-bold">Formación y educación</h4>
-      <p class="text-gray-600">Charlas, talleres y foros educativos para la comunidad, fomentando hábitos sostenibles.</p>
-    </div>
-  </div>
-</section>
-
-<!-- OFERTAS -->
-<section id="ofertas" class="py-16">
-  <h2 class="text-4xl font-bold mb-6">OFERTAS Y SISTEMA BEES</h2>
-  <p class="text-gray-600 mb-6">Nuestro sistema de puntos <b>Bees</b> premia a los usuarios más responsables con descuentos, mejoras vecinales y beneficios exclusivos.</p>
-
-  <div class="grid md:grid-cols-3 gap-6">
-    <div class="card">
-      <h4 class="font-bold">Sistema de puntos</h4>
-      <ul class="text-gray-600 mt-2">
-        <li>Puntos por alcanzar objetivos de eficiencia mensual.</li>
-        <li>Puntos por votar a favor de mejoras comunitarias.</li>
-        <li>Reconocimiento a hogares más sostenibles (Colmena Verde).</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h4 class="font-bold">Canje de beneficios</h4>
-      <p class="text-gray-600">Los puntos se canjean por descuentos en productos, servicios de reformas o cupones en comercios locales.</p>
-    </div>
-    <div class="card">
-      <h4 class="font-bold">Mejoras vecinales</h4>
-      <ul class="text-gray-600 mt-2">
-        <li>Plantación de jardines comunitarios.</li>
-        <li>Instalación de puntos de recarga solar o baterías compartidas.</li>
-        <li>Optimización de iluminación y eficiencia en zonas comunes.</li>
-      </ul>
-    </div>
   </div>
 </section>
 
@@ -460,15 +474,14 @@
     form.reset();
     setTimeout(()=>{successMsg.classList.remove("show");},3000);
   });
+
+  // Menú móvil toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
