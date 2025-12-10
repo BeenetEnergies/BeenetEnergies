@@ -55,4 +55,292 @@
     /* Icono Instagram */
     .insta-circle{
       width:40px;height:40px;border-radius:999px;
-      display:flex;align-items:center;justify-content:cen
+      display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+      box-shadow:0 8px 20px rgba(0,0,0,.14);
+    }
+
+    /* TARJETAS */
+    .card{
+      background:white;
+      padding:1.6rem;
+      border-radius:1rem;
+      box-shadow:0 20px 40px rgba(0,0,0,.08);
+      transition:.25s;
+    }
+    .card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 28px 60px rgba(0,0,0,.12);
+    }
+
+    /* Animación inicial — ABEJA VOLANDO */
+    #intro{
+      position:fixed;
+      inset:0;
+      background:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      z-index:9999;
+      transition:opacity .8s ease;
+    }
+    #intro.hide{
+      opacity:0;
+      pointer-events:none;
+    }
+
+    .bee{
+      width:80px;
+      height:80px;
+      background:url('https://i.imgur.com/u6KFrfK.png') center/contain no-repeat;
+      animation:fly 2s ease forwards;
+    }
+
+    @keyframes fly{
+      0%{transform:translateX(-120px) translateY(40px) rotate(-20deg); opacity:0;}
+      40%{transform:translateX(20px) translateY(-10px) rotate(10deg); opacity:1;}
+      70%{transform:translateX(50px) translateY(0) rotate(0deg);}
+      100%{transform:translateX(0) translateY(0) scale(1);}
+    }
+
+    .logo-intro{
+      width:160px;
+      opacity:0;
+      transform:scale(.75);
+      transition:.8s ease;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- INTRO ANIMATION -->
+<div id="intro">
+  <div class="bee"></div>
+  <img id="logoIntro" class="logo-intro" src="assets/img/logo.png" alt="Beenet Energies">
+</div>
+
+<!-- HEADER -->
+<header class="sticky top-0 bg-white/90 backdrop-blur border-b z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="flex items-center gap-3">
+      <img src="assets/img/logo.png" class="h-12 w-12">
+      <div>
+        <h1 class="title-bungee text-xl" style="color:var(--blue-900)">BEENET ENERGIES</h1>
+        <p class="text-xs text-gray-500">Energía Responsable · Comunidad · Innovación</p>
+      </div>
+    </div>
+
+    <nav class="hidden md:flex gap-6 text-sm">
+      <a href="#inicio" class="hover:text-black text-gray-500">INICIO</a>
+      <a href="#quienes" class="hover:text-black text-gray-500">QUIÉNES</a>
+      <a href="#ods" class="hover:text-black text-gray-500">ODS 12</a>
+      <a href="#necesidad" class="hover:text-black text-gray-500">NECESIDAD</a>
+      <a href="#solucion" class="hover:text-black text-gray-500">SOLUCIÓN</a>
+      <a href="#campanas" class="hover:text-black text-gray-500">CAMPAÑAS</a>
+      <a href="#ofertas" class="hover:text-black text-gray-500">OFERTAS</a>
+
+      <a href="https://www.instagram.com/beenet_energies/?igsh=d2Zna3FvenVpNnF2#" target="_blank">
+        <div class="insta-circle">
+          <svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M7 2C4 2 2 4 2 7v10c0 3 2 5 5 5h10c3 0 5-2 5-5V7c0-3-2-5-5-5H7z"/></svg>
+        </div>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="max-w-6xl mx-auto px-6">
+
+<!-- HERO -->
+<section id="inicio" class="py-20 grid md:grid-cols-2 gap-8 items-center">
+  <div data-aos="fade-right">
+    <h1 class="title-bungee text-6xl" style="color:var(--blue-900)">ENERGÍA RESPONSABLE</h1>
+    <p class="mt-4 text-lg text-gray-600"><b>Transformamos hogares</b> en espacios sostenibles mediante tecnología, educación y comunidad.</p>
+
+    <div class="flex gap-4 mt-6">
+      <a href="#solucion" class="btn-main">DESCUBRIR SOLUCIÓN</a>
+      <a href="#contacto" class="px-6 py-3 border rounded-full text-gray-600 hover:text-black">CONTACTO</a>
+    </div>
+  </div>
+
+  <div data-aos="fade-left">
+    <img class="rounded-2xl shadow-xl" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" />
+  </div>
+</section>
+
+<!-- QUIENES -->
+<section id="quienes" class="py-16">
+  <h2 class="text-4xl font-bold mb-4">QUIÉNES SOMOS</h2>
+  <p class="text-gray-600 text-lg">Somos un proyecto creado para combatir el <b>uso ineficiente de la energía</b> en hogares vulnerables y promover soluciones accesibles.</p>
+
+  <div class="mt-6 grid md:grid-cols-2 gap-6">
+    <div class="card" data-aos="zoom-in">
+      <h3 class="font-bold mb-2">EQUIPO</h3>
+      <ul class="text-gray-600">
+        <li><b>Ionut Antonio George Mihai</b></li>
+        <li><b>Matías Torres Morales</b></li>
+        <li><b>Renata Vizitiu</b></li>
+        <li><b>Paula de Santiago Delgado</b></li>
+      </ul>
+    </div>
+    <div class="card" data-aos="zoom-in" data-aos-delay="100">
+      <h3 class="font-bold mb-2">MISIÓN</h3>
+      <p>Crear hogares más eficientes mediante reformas, productos eco y formación energética.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ODS -->
+<section id="ods" class="py-16 bg-gray-50">
+  <h2 class="text-4xl font-bold mb-4">ODS 12 — PRODUCCIÓN Y CONSUMO RESPONSABLE</h2>
+  <p class="text-gray-600 mb-8">Nuestro proyecto se alinea con la <b>Agenda 2030</b> y promueve prácticas que reducen el impacto ambiental en hogares.</p>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="card">
+      <h4 class="font-bold">REDUCCIÓN</h4>
+      <p class="text-gray-600">Minimizamos el <b>desperdicio de energía</b> mediante diagnósticos y optimización.</p>
+    </div>
+    <div class="card">
+      <h4 class="font-bold">REUTILIZACIÓN</h4>
+      <p class="text-gray-600">Promovemos electrodomésticos reparables y reciclados.</p>
+    </div>
+    <div class="card">
+      <h4 class="font-bold">EDUCACIÓN</h4>
+      <p class="text-gray-600">Formación continua para fomentar hábitos sostenibles.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NECESIDAD -->
+<section id="necesidad" class="py-16">
+  <h2 class="text-4xl font-bold mb-4">NECESIDAD DETECTADA</h2>
+  <p class="text-gray-600 mb-8">El <b>desperdicio energético</b> afecta especialmente a hogares con recursos limitados.</p>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="card">
+      <h4 class="font-bold">PROBLEMAS</h4>
+      <ul class="mt-2 text-gray-600">
+        <li>Ineficiencia</li>
+        <li>Costes altos</li>
+        <li>Falta de educación</li>
+        <li>Publicidad engañosa</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h4 class="font-bold">IMPACTO</h4>
+      <p class="text-gray-600">Desperdicio de agua, electricidad y recursos naturales.</p>
+    </div>
+
+    <div class="card">
+      <h4 class="font-bold">ENFOQUE</h4>
+      <p class="text-gray-600">Soluciones accesibles, sostenibles y diseñadas para todos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUCION -->
+<section id="solucion" class="py-16 bg-gray-50">
+  <h2 class="text-4xl font-bold mb-4">SOLUCIÓN</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="card">
+      <h4 class="font-bold">DIAGNÓSTICO</h4>
+      <p class="text-gray-600">Evaluamos tu hogar para mejorar su eficiencia.</p>
+    </div>
+    <div class="card">
+      <h4 class="font-bold">PRODUCTOS ECO</h4>
+      <p class="text-gray-600">Electrodomésticos con programas de bajo consumo.</p>
+    </div>
+    <div class="card">
+      <h4 class="font-bold">EDUCACIÓN</h4>
+      <p class="text-gray-600">Charlas, talleres y formación ambiental.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAMPANAS -->
+<section id="campanas" class="py-16">
+  <h2 class="text-4xl font-bold mb-4">CAMPAÑAS</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+    <div class="card">
+      <h4 class="font-bold">HOGAR EFICIENTE</h4>
+      <p class="text-gray-600">Diagnósticos gratuitos.</p>
+    </div>
+    <div class="card">
+      <h4 class="font-bold">SEMANA DE LA ENERGÍA</h4>
+      <p class="text-gray-600">Eventos formativos.</p>
+    </div>
+    <div class="card">
+      <h4 class="font-bold">DESENCHUFA & AHORRA</h4>
+      <p class="text-gray-600">Retos mensuales.</p>
+    </div>
+  </div>
+</section>
+
+<!-- OFERTAS -->
+<section id="ofertas" class="py-16 bg-gray-50">
+  <h2 class="text-4xl font-bold mb-6">OFERTAS Y SISTEMA BEES</h2>
+
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <p class="text-gray-600"><b>Bees</b> es nuestro sistema de puntos que premia la eficiencia con descuentos, talleres y mejoras vecinales.</p>
+      <ul class="mt-3 text-gray-600">
+        <li><b>Banco de eficiencia</b> compartido</li>
+        <li><b>Intercambio de electrodomésticos</b></li>
+        <li><b>Reconocimientos comunitarios</b></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3 class="font-bold mb-2">APP BEENET</h3>
+      <p class="text-gray-600 mb-3">Consulta consumo, controla dispositivos y conecta con tu comunidad.</p>
+      <div class="h-48 bg-gray-200 rounded-xl flex items-center justify-center text-gray-500">
+        Aquí irá la imagen de la APP
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="py-16 text-center">
+  <h2 class="text-4xl font-bold mb-6">CONTACTO</h2>
+  <p class="text-gray-600 mb-4">¿Quieres colaborar? ¿Tienes dudas? Escríbenos.</p>
+
+  <a href="mailto:beenetenergies@gmail.com" class="btn-main text-lg">ENVIAR CORREO</a>
+</section>
+
+</main>
+
+<footer class="py-10 text-center text-gray-500">
+  <p>© <span id="year"></span> Beenet Energies — Todos los derechos reservados</p>
+  <a href="https://www.instagram.com/beenet_energies/?igsh=d2Zna3FvenVpNnF2#" target="_blank">
+    <div class="insta-circle mx-auto mt-3">
+      <svg width="20" height="20" fill="white" viewBox="0 0 24 24">
+        <path d="M7 2C4 2 2 4 2 7v10c0 3 2 5 5 5h10c3 0 5-2 5-5V7c0-3-2-5-5-5H7z"/>
+      </svg>
+    </div>
+  </a>
+</footer>
+
+<script>
+  AOS.init({duration:800, once:true});
+
+  window.onload = ()=>{
+    setTimeout(()=>{
+      document.getElementById("logoIntro").style.opacity = 1;
+      document.getElementById("logoIntro").style.transform = "scale(1)";
+    },1000);
+
+    setTimeout(()=>{
+      document.getElementById("intro").classList.add("hide");
+    },2200);
+  };
+
+  document.getElementById("year").innerText = new Date().getFullYear();
+</script>
+
+</body>
+</html>
+
