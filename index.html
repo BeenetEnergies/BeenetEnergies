@@ -160,13 +160,13 @@
 
 <div id="intro">
   <canvas id="particlesCanvas"></canvas>
-  <img id="logoIntro" class="logo-intro" src="assets/img/logo.png" alt="Beenet Energies">
+  <img id="logoIntro" class="logo-intro" src="./assets/img/logo.png" alt="Beenet Energies">
 </div>
 
 <header class="sticky top-0 bg-white/90 backdrop-blur border-b z-50">
   <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
     <div class="flex items-center gap-3">
-      <img src="assets/img/logo.png" class="h-12 w-12">
+      <img src="./assets/img/logo.png" class="h-12 w-12">
       <div>
         <h1 class="title-bungee text-xl" style="color:var(--blue-900)"><b>BEENET ENERGIES</b></h1>
         <p class="text-xs text-gray-500">Energía Responsable · Comunidad · Innovación</p>
@@ -218,7 +218,7 @@
   </div>
 
   <div data-aos="fade-left">
-    <img class="rounded-2xl shadow-xl w-full object-cover" src="assets/img/beenet energies.jpg" alt="Beenet Energies" />
+    <img class="rounded-2xl shadow-xl w-full object-cover" src="./assets/img/inicio.jpg" />
   </div>
 </section>
 
@@ -349,8 +349,8 @@
   <p class="text-gray-600 mb-6">Conoce más sobre nuestro proyecto.</p>
   <div class="video-wrapper">
     <video controls width="100%">
-      <source src="assets/video/proyecto_beenet.mov" type="video/quicktime">
-      <source src="assets/video/proyecto_beenet.mp4" type="video/mp4">
+      <source src="./assets/video/proyecto.mov" type="video/quicktime">
+      <source src="./assets/video/proyecto.mp4" type="video/mp4">
       Tu navegador no soporta el video.
     </video>
   </div>
@@ -388,7 +388,6 @@
 <script>
   AOS.init({duration:800, once:true});
 
-  // Animación del logo y ocultar intro
   const canvas = document.getElementById('particlesCanvas');
   const ctx = canvas.getContext('2d');
   canvas.width = window.innerWidth;
@@ -448,10 +447,8 @@
     },2500);
   };
 
-  // Año en footer
   document.getElementById("year").innerText = new Date().getFullYear();
 
-  // Formulario contacto
   const form = document.getElementById("contactForm");
   const successMsg = document.getElementById("successMsg");
   form.addEventListener("submit", e=>{
@@ -461,7 +458,6 @@
     setTimeout(()=>{successMsg.classList.remove("show");},3000);
   });
 
-  // Toggle menú móvil
   const toggleMenu = document.getElementById('toggleMenu');
   const menuLinks = document.getElementById('menuLinks');
   toggleMenu.addEventListener('click', ()=>{
