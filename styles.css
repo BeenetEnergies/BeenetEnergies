@@ -1,4 +1,4 @@
-/* styles.css — Beenet Energies
+/* styles.css — Beenet Energies 
    Tipografías: Bungee para títulos, Nunito para cuerpo (cargadas desde Google Fonts en index.html)
 */
 
@@ -148,4 +148,30 @@ footer { color: var(--muted); font-size: 0.95rem; }
 @media (max-width: 768px) {
   .hero-curve { border-radius: 0 0 0 60px; min-height: 300px; }
   .title-bungee { font-size: 2rem; }
+}
+
+/* ============================================================
+   AÑADIDOS PARA LA IMAGEN Y VIDEO (Nuevos ajustes)
+   ============================================================ */
+
+/* Ajuste para que la imagen de inicio se adapte sin deformarse */
+#inicio img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+/* Ajuste para que el video llene su contenedor correctamente */
+video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: inherit;
+}
+
+/* Mejora del contenedor del video */
+.video-wrapper {
+  background: #000;
+  line-height: 0; /* Quita espacios extra debajo del video */
 }
