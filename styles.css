@@ -1,177 +1,132 @@
-/* styles.css — Beenet Energies 
-   Tipografías: Bungee para títulos, Nunito para cuerpo (cargadas desde Google Fonts en index.html)
-*/
-
-/* Paleta de colores — ajusta si quieres otro tono */
-:root{
+:root {
   --blue-900: #0A4D68;
   --blue-600: #1F8AFA;
   --yellow: #FFDD00;
-  --accent: #057A6E;
-  --muted: #6B7280;
-  --bg: #FFFFFF;
-  --card-bg: #ffffff;
+  --yellow-soft: #fff5b3;
+  --muted: #64748b;
 }
 
-/* Reset mínimo y mejoras de texto */
-* { box-sizing: border-box; }
-html, body { height: 100%; margin: 0; padding: 0; background: var(--bg); }
 body {
-  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: 'Nunito', sans-serif;
   color: #0f172a;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5;
+  background: white;
+  margin: 0;
 }
 
-/* TITULOS con Bungee */
 .title-bungee {
-  font-family: "Bungee", cursive;
-  letter-spacing: -0.5px;
-  line-height: 1;
-  color: var(--blue-900);
+  font-family: 'Bungee', cursive;
+  letter-spacing: -1px;
 }
 
-/* Helpers */
-.muted { color: var(--muted); }
-.card-shadow { box-shadow: 0 14px 40px rgba(10,77,104,0.06); }
-.container { max-width: 1200px; margin: 0 auto; padding-left: 1rem; padding-right: 1rem; }
-
-/* HERO */
-.hero-curve {
-  border-radius: 0 0 0 160px;
-  overflow: hidden;
-  min-height: 420px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.6));
-}
-
-/* Botón principal / campañas (mejorado) */
-.btn-camp {
-  background: linear-gradient(90deg, var(--yellow), #ffd84d);
+.btn-main {
+  background: linear-gradient(90deg, var(--yellow), #ffe56d);
+  padding: .7rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 800;
   color: #06202a;
-  font-weight: 700;
-  padding: 0.6rem 1.2rem;
-  border-radius: 999px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(10,77,104,0.08);
-  transition: transform .22s ease, box-shadow .22s ease;
+  transition: .25s;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
   display: inline-block;
-  text-decoration: none;
-}
-.btn-camp:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 18px 40px rgba(10,77,104,0.12);
 }
 
-/* Botones secundarios */
-.btn-ghost {
-  padding: 0.5rem 1rem;
-  border-radius: 999px;
-  border: 1px solid rgba(15,23,42,0.06);
-  background: transparent;
-  color: var(--muted);
-  text-decoration: none;
+.btn-main:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.18);
 }
 
-/* INSTAGRAM icon redondo */
 .insta-circle {
   width: 40px;
   height: 40px;
   border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-}
-
-/* INTRO (pantalla de logo) */
-#introWrap {
-  position: fixed;
-  inset: 0;
-  background: var(--bg);
-  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity .6s ease, visibility .6s;
+  background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  box-shadow: 0 8px 20px rgba(0,0,0,.14);
 }
-#introWrap.hide { opacity: 0; pointer-events: none; visibility: hidden; }
 
-/* logo dentro del intro */
-#introLogo {
-  width: 120px;
-  height: auto;
+.card {
+  background: white;
+  padding: 1.6rem;
+  border-radius: 1rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,.08);
+  transition: .25s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 60px rgba(0,0,0,.12);
+}
+
+#intro {
+  position: fixed;
+  inset: 0;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 9999;
+  transition: opacity .8s ease;
+}
+
+#intro.hide {
   opacity: 0;
-  transform: scale(.95);
-  transition: opacity .6s ease, transform .6s ease;
+  pointer-events: none;
 }
 
-/* Animation stroke helper (si usas SVG stroke) */
-.stroke-path {
-  stroke: var(--blue-900);
-  stroke-width: 3;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 1200;
-  stroke-dashoffset: 1200;
-}
-.stroke-animate { animation: draw 1.6s ease forwards; }
-@keyframes draw { to { stroke-dashoffset: 0; } }
-
-/* Cards / secciones */
-.section-card {
-  background: var(--card-bg);
-  border-radius: 12px;
-  padding: 1.25rem;
-}
-
-/* Video placeholder */
-.video-placeholder {
+#particlesCanvas {
   width: 100%;
-  max-width: 900px;
-  height: 300px;
-  background: #000;
-  color: #fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius: 12px;
+  height: 100%;
+  position: absolute;
+  inset: 0;
 }
 
-/* Footer small */
-footer { color: var(--muted); font-size: 0.95rem; }
-
-/* Responsive tweaks (pequeñas) */
-@media (max-width: 768px) {
-  .hero-curve { border-radius: 0 0 0 60px; min-height: 300px; }
-  .title-bungee { font-size: 2rem; }
+.logo-intro {
+  width: 160px;
+  z-index: 10;
+  opacity: 0;
+  transform: scale(0.75);
+  transition: all 1s ease;
 }
 
-/* ============================================================
-   AÑADIDOS PARA LA IMAGEN Y VIDEO (Nuevos ajustes)
-   ============================================================ */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 
-/* Ajuste para que la imagen de inicio se adapte sin deformarse */
+.contact-form input, .contact-form textarea {
+  padding: .75rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+}
+
 #inicio img {
   width: 100%;
-  height: auto;
+  height: 450px;
   object-fit: cover;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
 }
 
-/* Ajuste para que el video llene su contenedor correctamente */
+.video-wrapper {
+  max-width: 800px;
+  margin: 2rem auto;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #000;
+}
+
 video {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: inherit;
 }
 
-/* Mejora del contenedor del video */
-.video-wrapper {
-  background: #000;
-  line-height: 0; /* Quita espacios extra debajo del video */
+@media (max-width: 768px) {
+  #inicio img {
+    height: 300px;
+  }
 }
